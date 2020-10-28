@@ -1,0 +1,28 @@
+from operator import itemgetter, attrgetter, methodcaller
+class Student():
+    def __init__(self, time, name):
+        self.time=float(time)
+        self.name=str(name)
+    def __repr__(self):
+        return repr((self.time,self.name)) 
+a=[]
+n=int(input())
+for i in range(n):
+    m=int(input())
+    for j in range(m):
+        tm,nm=map(str,input().split())
+        if len(a)==0: a.append(Student(tm,nm))
+        else:
+            f=True
+            for s in a: 
+                if s.name==nm: 
+                    s.time+=float(tm)
+                    f=False
+                    break
+            if f: 
+                a.append(Student(tm,nm))
+                f=True
+b=sorted(a,key=attrgetter("time"))
+print(len(b))
+for i in range(len(b)-1,-1,-1):
+    print('%.2f'%b[i].time,b[i].name)
