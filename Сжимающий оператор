@@ -1,0 +1,11 @@
+n,q=map(float,input().split())
+flag=True
+for i in range(int(n)):
+    x1,y1,x2,y2=map(float, input().split())
+    d1=((x1**2+y1**2)**0.5)*1000
+    d2=((x2**2+y2**2)**0.5)*1000
+    if d1*q<d2:
+        flag=False
+        break
+if flag: print("Yes")
+else: print("No")
