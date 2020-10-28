@@ -1,0 +1,55 @@
+a=input()
+b=input()
+aa=int(a)
+bb=int(b)
+ar=[]
+br=[]
+am=False
+bm=False
+if aa<0: am=True
+if bb<0: bm=True
+if am: 
+    for i in range(1,len(a)): ar.append(int(a[i]))
+    ar.sort()
+    if ar[0]==0:
+        for i in range(len(ar)):
+            if ar[i]!=0:
+                ar[0]=ar[i]
+                ar[i]=0
+                break
+else:
+    for i in range(len(a)): ar.append(int(a[i]))
+    ar.sort()
+    ar.reverse()
+    if ar[0]==0:
+        for i in range(len(ar)):
+            if ar[i]!=0:
+                ar[0]=ar[i]
+                ar[i]=0
+                break
+if bm:
+    for i in range(1,len(b)): br.append(int(b[i]))
+    br.sort()
+    br.reverse()
+    if br[0]==0:
+        for i in range(len(br)):
+            if br[i]!=0:
+                br[0]=br[i]
+                br[i]=0
+                break
+else:
+    for i in range(len(b)): br.append(int(b[i]))
+    br.sort()
+    if br[0]==0:
+        for i in range(len(br)):
+            if br[i]!=0:
+                br[0]=br[i]
+                br[i]=0
+                break
+ast=""
+bst=""
+if am: ast+="-"
+if bm: bst+="-"
+for i in range(len(ar)): ast+=str(ar[i])
+for i in range(len(br)): bst+=str(br[i])
+print(int(ast)-int(bst))
